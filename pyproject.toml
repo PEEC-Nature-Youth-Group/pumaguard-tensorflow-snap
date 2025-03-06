@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pumaguard_tensorflow"
+version = "0.1.0"
+description = ""
+authors = ["Nicolas Bock <nicolasbock@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+tensorflow = "^2.18.0"
+
+[tool.poetry.scripts]
+pumaguard-tensorflow = 'pumaguard_tensorflow.main:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
