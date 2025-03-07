@@ -35,5 +35,9 @@ parts:
       - git
     override-pull: |
       craftctl default
-      craftctl set version=$(git describe --tags)
-      poetry --version
+      VERSION=$(git describe --tags 2> /dev/null | sed --regexp-extended 's/^v([0-9]+)(-([0-9]+))?.*/\1.post\3/; s/.post$//') || VERSION='undefined'
+      if [[ ${VERSION} == undefined ]] && [[ -f version ]]; then
+        VERSION=$(cat version)
+      fi
+      craftctl set version=${VERSION}
+      poetry version ${VERSION}
