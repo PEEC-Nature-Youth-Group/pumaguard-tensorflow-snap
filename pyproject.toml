@@ -1,12 +1,18 @@
 [tool.poetry]
 name = "pumaguard_tensorflow"
-version = "0.1.0"
+version = "0.0.0"
 description = ""
 authors = ["Nicolas Bock <nicolasbock@gmail.com>"]
 readme = "README.md"
+homepage = "http://pumaguard.rtfd.io/"
+repository = "https://github.com/PEEC-Nature-Youth-Group/pumaguard-tensorflow-snap"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.10,<4.0"
+matplotlib = "~=3.10"
+packaging = "^24.2"
+pillow = "~=11.1"
+pyyaml = "~=6.0"
 tensorflow = "^2.18.0"
 
 [tool.poetry.scripts]
