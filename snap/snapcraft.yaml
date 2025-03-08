@@ -34,6 +34,8 @@ parts:
     source: .
     build-packages:
       - git
+    stage-packages:
+      - nvidia-cudnn
     override-pull: |
       set -e -u -x
       craftctl default
@@ -43,6 +45,12 @@ parts:
       fi
       craftctl set version=${VERSION}
       poetry version ${VERSION}
+    override-build: |
+      set -e -u x
+      if [[ ${CRAFT_ARCH_BUILD_FOR} == amd64 ]]; then
+        poetry add 'tensorflow[and-cuda]'
+      fi
+      craftctl default
 
   cuda:
     plugin: dump
