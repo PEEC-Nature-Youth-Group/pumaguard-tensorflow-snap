@@ -57,6 +57,7 @@ parts:
     source: https://salsa.debian.org/nvidia-team/nvidia-cudnn.git
     build-packages:
       - git
+      - curl
     stage-packages:
       - nvidia-cudnn
     override-build: |
