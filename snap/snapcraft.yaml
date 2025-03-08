@@ -45,13 +45,13 @@ parts:
       poetry version ${VERSION}
 
   cuda:
-    plugin: nil
+    plugin: dump
+    source: https://salsa.debian.org/nvidia-team/nvidia-cudnn.git
+    build-packages:
+      - git
     stage-packages:
       - nvidia-cudnn
     override-build: |
       set -e -u -x
       craftctl default
-      sed --in-place --expression 's/Types:.*/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
-      apt-get update
-      apt-get source nvidia-cudnn
-      nvidia-cudnn*/update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr --filelist ${CRAFT_PART_INSTALL}/usr/share/nvidia-cudnn/deb-files.txt
+      update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr --filelist ${CRAFT_PART_INSTALL}/usr/share/nvidia-cudnn/deb-files.txt
