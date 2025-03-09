@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pumaguard_tensorflow"
+name = "pumaguard-tensorflow"
 version = "0.0.0"
 description = ""
 authors = ["Nicolas Bock <nicolasbock@gmail.com>"]
