@@ -22,11 +22,7 @@ slots:
     source:
       read:
         - $SNAP/lib
-        - $SNAP/usr/lib
-
-lint:
-  ignore:
-    - library
+        - $SNAP/usr
 
 apps:
   pumaguard-tensorflow:
@@ -38,8 +34,6 @@ parts:
     source: .
     build-packages:
       - git
-    stage-packages:
-      - nvidia-cudnn
     override-pull: |
       set -e -u -x
       craftctl default
@@ -50,7 +44,7 @@ parts:
       craftctl set version=${VERSION}
       poetry version ${VERSION}
     override-build: |
-      set -e -u x
+      set -e -u -x
       if [[ ${CRAFT_ARCH_BUILD_FOR} == amd64 ]]; then
         poetry add 'tensorflow[and-cuda]'
       fi
@@ -60,11 +54,7 @@ parts:
     plugin: dump
     source: https://salsa.debian.org/nvidia-team/nvidia-cudnn.git
     build-packages:
-      - git
       - curl
-    stage-packages:
-      - nvidia-cudnn
     override-build: |
       set -e -u -x
-      craftctl default
-      update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr --filelist ${CRAFT_PART_INSTALL}/usr/share/nvidia-cudnn/deb-files.txt
+      update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr

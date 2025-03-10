@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e -u -x
+
+mkdir --parents $SNAP_COMMON/usr
+
+update-nvidia-cudnn --update \
+    --arch ${SNAP_ARCH} \
+    --multiarch $(multiarch-helper.sh) \
+    --prefix ${SNAP_COMMON}/usr \
+    --filelist ${SNAP_COMMON}/usr/share/nvidia-cudnn/deb-files.txt \
+    2>&1 | tee /tmp/update-nvidia-cudnn.log
