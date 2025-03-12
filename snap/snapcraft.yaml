@@ -57,4 +57,6 @@ parts:
       - curl
     override-build: |
       set -e -u -x
-      ./update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
+      if [[ ${CRAFT_ARCH_BUILD_FOR} == amd64 ]]; then
+        ./update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
+      fi
