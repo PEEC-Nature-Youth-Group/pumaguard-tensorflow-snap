@@ -57,4 +57,4 @@ parts:
       - curl
     override-build: |
       set -e -u -x
-      update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
+      ./update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
