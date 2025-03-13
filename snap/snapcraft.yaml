@@ -24,9 +24,9 @@ slots:
         - $SNAP/lib
         - $SNAP/usr
 
-lint:
-  ignore:
-    - library
+        # lint:
+        #   ignore:
+        #     - library
 
 apps:
   pumaguard-tensorflow:
