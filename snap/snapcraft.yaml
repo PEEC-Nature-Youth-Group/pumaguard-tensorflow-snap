@@ -49,7 +49,7 @@ parts:
       poetry version ${VERSION}
     override-build: |
       set -e -u -x
-      if [[ ${CRAFT_ARCH_BUILD_FOR} == amdx64 ]]; then
+      if [[ ${CRAFT_ARCH_BUILD_FOR} == amd64 ]]; then
         poetry add 'tensorflow[and-cuda]'
       fi
       craftctl default
