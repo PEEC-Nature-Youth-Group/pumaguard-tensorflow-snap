@@ -45,7 +45,7 @@ parts:
       if [[ ${VERSION} == undefined ]] && [[ -f version ]]; then
         VERSION=$(cat version)
       fi
-      craftctl set version=${VERSION}
+      craftctl set version="v${VERSION}"
       poetry version ${VERSION}
     override-build: |
       set -e -u -x
