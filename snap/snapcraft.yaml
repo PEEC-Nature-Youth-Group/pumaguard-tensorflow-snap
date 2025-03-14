@@ -55,12 +55,13 @@ parts:
       craftctl default
 
   cuda:
-    plugin: dump
-    source: https://salsa.debian.org/nvidia-team/nvidia-cudnn.git
+    plugin: nil
     build-packages:
-      - curl
+      - nvidia-cudnn
+    stage-packages:
+      - nvidia-cudnn
     override-build: |
       set -e -u -x
       if [[ ${CRAFT_ARCH_BUILD_FOR} == amd64 ]]; then
-        ./update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
+        update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
       fi
