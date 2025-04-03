@@ -54,14 +54,14 @@ parts:
       fi
       craftctl default
 
-  cuda:
-    plugin: nil
-    build-packages:
-      - nvidia-cudnn
-    stage-packages:
-      - nvidia-cudnn
-    override-build: |
-      set -e -u -x
-      if [[ ${CRAFT_ARCH_BUILD_FOR} == xamd64 ]]; then
-        update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
-      fi
+  # cuda:
+  #   plugin: nil
+  #   build-packages:
+  #     - nvidia-cudnn
+  #   stage-packages:
+  #     - nvidia-cudnn
+  #   override-build: |
+  #     set -e -u -x
+  #     if [[ ${CRAFT_ARCH_BUILD_FOR} == xamd64 ]]; then
+  #       update-nvidia-cudnn --update --prefix ${CRAFT_PART_INSTALL}/usr
+  #     fi
