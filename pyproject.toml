@@ -16,11 +16,13 @@ pillow = "~=11.1"
 pyyaml = "~=6.0"
 tensorflow = "~=2.20"
 ultralytics = "~=8.3"
+requests = "~=2.32"
 
 [tool.poetry.group.dev.dependencies]
 ansible = "~=10.7"
 ansible-lint = { version = "~=25.2", markers = 'platform_system != "Windows"' }
 bashate = "~=2.1"
+black = "~=25.9"
 ipykernel = "~=6.29"
 isort = "~=6.0"
 mypy = "~=1.18"
