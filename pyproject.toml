@@ -9,7 +9,6 @@ repository = "https://github.com/PEEC-Nature-Youth-Group/pumaguard-tensorflow-sn
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-matplotlib = "~=3.10"
 packaging = "~=25.0"
 pandas = "~=2.3"
 pillow = "~=11.1"
