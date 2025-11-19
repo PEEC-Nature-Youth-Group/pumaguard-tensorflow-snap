@@ -30,8 +30,10 @@ apps:
 
 parts:
   pumaguard-tensorflow:
-    plugin: poetry
+    plugin: uv
     source: .
+    build-snaps:
+      - astral-uv
     build-packages:
       - git
     override-pull: |
@@ -42,4 +44,3 @@ parts:
         VERSION=$(cat version)
       fi
       craftctl set version="v${VERSION}"
-      poetry version ${VERSION}
